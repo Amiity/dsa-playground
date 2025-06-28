@@ -13,7 +13,7 @@ public class N2Forest {
                     * *
                     * * *
         */
-
+        int n = 3;
         for (int i = 1; i <= 3; i++) {
 
             for (int j = 0; j < i; j++) {
@@ -32,7 +32,7 @@ public class N2Forest {
                 *
          */
         System.out.println("\n\n------------");
-        for (int i = 3; i > 0; i--) {
+        for (int i = n; i > 0; i--) {
 
             for (int j = i; j > 0; j--) {
                 System.out.print("* ");
@@ -54,7 +54,6 @@ public class N2Forest {
                 *****
          */
 
-        int n = 3;
 
         for (int i = 1; i <= n; i++) {
             for (int j = n; j > i; j--) {
@@ -116,6 +115,72 @@ public class N2Forest {
             }
             System.out.println();
             stars--;
+        }
+
+
+        /*
+            Input: ‘N’ = 3
+
+            Output:
+            *         *
+            * *     * *
+            * * * * * *
+            * *     * *
+            *         *
+         */
+
+        int space = 2 * n - 2;
+        System.out.println("\n-----------\n");
+        for (int i = 1; i <= 2 * n - 1; i++) {
+
+            int star = i;
+
+            if (i > n) star = 2 * n - i;
+
+
+            for (int j = 0; j < star; j++) {
+                System.out.print("*");
+            }
+
+            for (int j = 0; j < space; j++) {
+                System.out.print("-");
+            }
+
+            for (int j = 0; j < star; j++) {
+                System.out.print("*");
+            }
+            if (i < n) {
+                space -= 2;
+            } else {
+                space += 2;
+            }
+            System.out.println();
+
+        }
+
+        /*
+                Input: ‘N’ = 4
+
+                Output:
+
+                square of 4
+                ****
+                *  *
+                *  *
+                ****
+         */
+
+        System.out.println("\n------------\n");
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 || j == 0 || i == n - 1 || j == n - 1) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            System.out.println();
         }
     }
 }
