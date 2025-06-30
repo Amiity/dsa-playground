@@ -6,13 +6,36 @@ public class Sorting {
 
         int[] arr = {4, 3, 6, 2, 5, 1};
 
+        System.out.println("\n\n----------------------------------\n");
         selectionSort();
+        System.out.println("\n\n----------------------------------\n");
         insertionSort();
+        System.out.println("\n\n----------------------------------\n");
         bubbleSort();
-
+        System.out.println("\n\n----------------------------------\n");
     }
 
     private static void bubbleSort() {
+
+        int[] arr = {4, 3, 6, 2, 5, 1};
+
+        for (int i = 1; i < arr.length; i++) {
+            boolean isSwapped = false;
+            for (int j = 0; j < arr.length - i; j++) {
+                if (arr[j + 1] < arr[j]) {
+                    int temp = arr[j + 1];
+                    arr[j + 1] = arr[j];
+                    arr[j] = temp;
+                    isSwapped = true;
+                }
+            }
+            if (isSwapped == false) break;
+        }
+        System.out.print("Bubble sort  -> ");
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
+
     }
 
     private static void insertionSort() {
