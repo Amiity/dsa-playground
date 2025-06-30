@@ -78,8 +78,24 @@ public class Sorting {
 
     private static void selectionSort() {
 
+        int[] arr = {4, 3, 6, 2, 5, 1};
 
+        for (int i = 0; i < arr.length-1; i++) {// because last element is already will remain sorted thats why till length-1
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            if(minIndex != i) {  //swap only if needed
+                int temp = arr[minIndex];
+                arr[minIndex] = arr[i];
+                arr[i] = temp;
+            }
+        }
+        System.out.print("Selection sort  -> ");
+        for (int i : arr) {
+            System.out.print(i + " ");
+        }
     }
-
-
 }
