@@ -1,2 +1,4 @@
-package Sorting;public class QuickSort {
+package Sorting;
+
+public class QuickSort {
 }
