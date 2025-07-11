@@ -4,9 +4,9 @@ public class RotateSortedArray {
 
     public static void main(String[] args) {
 
-        int[] nums = {1, 2, 3, 4, 5};
+        int[] nums = {1,2,3,4,5};
 
-        int k = 2;
+        int k = 3;
         rotateWithOutExtraSpace(nums, k);
 
         for (int i : nums) {
@@ -20,6 +20,32 @@ public class RotateSortedArray {
         rotateExtraSpace(nums2, k);
         for (int i : nums2) {
             System.out.print(i + " ");
+        }
+
+
+        System.out.println("\n");
+
+        int arr[] =  {1,2,3,4,5 };
+
+        int i = 0;
+        int j = arr.length-1;
+
+        reverseArray(i, k, arr, j); // full reverse
+        reverseArray(i, k-1 , arr, k-1); //left side
+        reverseArray(k, k+1, arr, j); // right side
+
+        for (int number : arr) {
+            System.out.print(number + " ");
+        }
+    }
+
+    private static void reverseArray(int i, int k, int[] arr, int j) {
+        while(i < k){
+            int temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+            i++;
+            j--;
         }
     }
 
