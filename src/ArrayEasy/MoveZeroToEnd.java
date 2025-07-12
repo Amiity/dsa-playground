@@ -7,11 +7,10 @@ public class MoveZeroToEnd {
 
         int pointer = 0;
 
-        for(int i = 0 ; i < arr.length-1; i++){
+        for(int i = 0 ; i < arr.length; i++){
             if (arr[i] != 0){
-                int temp = arr[pointer];
                 arr[pointer] =  arr[i];
-                arr[i] = temp;
+                arr[i] = 0;
                 pointer++;
             }
         }
