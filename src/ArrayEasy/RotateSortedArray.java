@@ -25,22 +25,22 @@ public class RotateSortedArray {
 
         System.out.println("\n");
 
-        int arr[] =  {1,2,3,4,5 };
-
+        int arr[] =  {1,2,3,4,5,6};
+        k = k % arr.length;
         int i = 0;
         int j = arr.length-1;
 
-        reverseArray(i, k, arr, j); // full reverse
-        reverseArray(i, k-1 , arr, k-1); //left side
-        reverseArray(k, k+1, arr, j); // right side
+        reverseArray(i, arr, j); // full reverse
+        reverseArray(i, arr, k-1); //left side
+        reverseArray(k, arr, j); // right side
 
         for (int number : arr) {
             System.out.print(number + " ");
         }
     }
 
-    private static void reverseArray(int i, int k, int[] arr, int j) {
-        while(i < k){
+    private static void reverseArray(int i, int [] arr, int j) {
+        while(i < j){
             int temp = arr[j];
             arr[j] = arr[i];
             arr[i] = temp;
