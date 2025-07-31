@@ -1,6 +1,7 @@
 package ArrayEasy;
 
-public class SubarraySubK {
+public class SubarraySubKPositive {
+
     public static void main(String[] args) {
 
         int[] nums = {10, 5, 2, 7, 1, 9};
@@ -17,16 +18,16 @@ public class SubarraySubK {
                     int count = j - i + 1;
                     if (count > maxCount) {
                         maxCount = count;
-                    }else if(count == maxCount){
-                        freq = freq+1;
+                    } else if (count == maxCount) {
+                        freq = freq + 1;
                     }
                 } else if (sum > k) {
                     break;
                 }
             }
         }
-        if(freq > maxCount){
-            maxCount = freq+1;
+        if (freq > maxCount) {
+            maxCount = freq + 1;
         }
 
         System.out.println(maxCount);
