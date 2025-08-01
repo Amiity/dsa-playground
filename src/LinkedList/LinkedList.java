@@ -29,8 +29,15 @@ public class LinkedList {
 
         list.deleteFirst();
         list.deleteAtEnd();
-        list.deleteAtIndex(3);
 
+        list.getAll();
+
+        System.out.println("""
+                                
+                Now performing deletion At Index
+                """);
+
+        list.deleteAtIndex(3);
 
         list.getAll();
 
@@ -38,6 +45,15 @@ public class LinkedList {
     }
 
     private void deleteAtIndex(int index) {
+        int count = 1;
+        Node previous = head;
+        Node current = head;
+        while(count < index){
+            previous = current;
+            current = current.next;
+            count++;
+        }
+        previous.next = current.next;
     }
 
     private void deleteAtEnd() {
