@@ -37,21 +37,70 @@ public class LinkedList {
                 Now performing deletion At Index
                 """);
 
-        list.deleteAtIndex(3);
+        list.deleteAtIndex(2);
+        list.getAll();
+
+        System.out.println("\nNo performing deletion using data");
+
+        list.add(2);
+        list.add(6);
+        list.add(5);
+        list.add(5);
+        list.add(8);
+        list.getAll();
+
+        list.deleteByValue(5);
 
         list.getAll();
 
 
     }
 
-    private void deleteAtIndex(int index) {
-        int count = 1;
-        Node previous = head;
+    private void deleteByValue(int data) {
+
+        // condition to check first or multiple occurence at the start
+        while (head != null && head.data == data) {
+            head = head.next;
+        }
+
+        Node previous = null;
         Node current = head;
-        while(count < index){
+
+
+        while (current != null) {
+            if (current.data == data) {
+                previous.next = current.next;
+                current = current.next;
+            } else {
+                previous = current;
+                current = current.next;
+            }
+        }
+    }
+
+    private void deleteAtIndex(int index) {
+
+        if (index < 0 || head == null) {
+            System.out.println("Invalid index");
+            return;
+        }
+
+        if (index == 0) {
+            head = head.next;
+            return;
+        }
+
+        int count = 0;
+        Node previous = null;
+        Node current = head;
+        while (current != null && count < index) {
             previous = current;
             current = current.next;
             count++;
+        }
+        if (current == null) {
+            System.out.println("Index out of bounds");
+            return;
         }
         previous.next = current.next;
     }
@@ -77,16 +126,26 @@ public class LinkedList {
     private void addAtIndex(int index, int data) {
         Node node = new Node(data);
 
-        int count = 1;
+        if (index < 0) {
+            System.out.println("Invalid Index");
+        }
+
+        int count = 0;
         Node current = head;
-        Node previous = head;
-        while (count < index) {
+        Node previous = null;
+        while (current != null & count < index) {
             previous = current;
             current = current.next;
             count++;
         }
-        previous.next = node;
-        node.next = current;
+
+        if (previous == null) {
+            node.next = head;
+            head = node;
+        } else {
+            previous.next = node;
+            node.next = current;
+        }
     }
 
 
@@ -118,6 +177,7 @@ public class LinkedList {
             System.out.print(current.data + " ");
             current = current.next;
         }
+        System.out.println();
     }
 }
 
