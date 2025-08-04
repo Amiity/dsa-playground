@@ -103,28 +103,31 @@ public class LinkedList {
         }
 
         int count = 0;
-        Node previous = null;
         Node current = head;
         while (current != null && count < index) {
-            previous = current;
-            current = current.next;
             count++;
+            current = current.next;
         }
-        if (current == null) {
-            System.out.println("Index out of bounds");
-            return;
-        }
-        previous.next = current.next;
+        current.data = current.next.data;
+        current.next = current.next.next;
     }
 
     private void deleteAtEnd() {
+        if (head == null) {
+            System.out.println("No node to delete");
+            return;
+        }
+
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
         Node current = head;
-        Node previous = head;
-        while (current.next != null) {
-            previous = current;
+        while (current.next.next != null) {
             current = current.next;
         }
-        previous.next = null;
+        current.next = null;
     }
 
     private void deleteFirst() {
