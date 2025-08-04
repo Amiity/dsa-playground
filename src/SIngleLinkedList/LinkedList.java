@@ -1,4 +1,4 @@
-package LinkedList;
+package SIngleLinkedList;
 
 public class LinkedList {
 
@@ -53,7 +53,19 @@ public class LinkedList {
 
         list.getAll();
 
+        System.out.println("size " + list.size());
 
+
+    }
+
+    private int size() {
+        int count = 0;
+        Node current = head;
+        while (current != null) {
+            count++;
+            current = current.next;
+        }
+        return count;
     }
 
     private void deleteByValue(int data) {
